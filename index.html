@@ -1,104 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZONEX - By Zo Technology</title>
-<meta name="theme-color" content="#0a7e07">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Roboto,sans-serif}
-body{background:#f8f9fa;color:#202124;padding-bottom:80px}
-.header{background:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 1px 4px rgba(0,0,0,.1);position:sticky;top:0;z-index:10}
-.logo{width:42px;height:42px;background:#0a7e07;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:24px}
-.brand{flex:1}
-.brand h1{font-size:22px;color:#0a7e07;letter-spacing:-0.5px}
-.brand p{font-size:11px;color:#5f6368}
-.badge{background:#e8f5e9;color:#0a7e07;padding:5px 10px;border-radius:20px;font-size:10px;font-weight:800}
-.banner{margin:16px;background:linear-gradient(135deg,#0a7e07,#1b5e20);color:#fff;border-radius:20px;padding:20px;text-align:center}
-.banner h2{font-size:20px}
-.banner p{font-size:13px;margin-top:6px;opacity:.9}
-.search{margin:16px;background:#fff;border-radius:28px;padding:12px 20px;display:flex;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.search input{flex:1;border:none;outline:none;font-size:15px}
-.upload-area{margin:16px;background:#fff;border:2px dashed #0a7e07;border-radius:16px;padding:20px;text-align:center}
-.upload-area h3{color:#0a7e07;font-size:16px}
-.upload-area p{font-size:12px;color:#666;margin:8px 0}
-.upload-btn{background:#0a7e07;color:#fff;border:none;padding:10px 24px;border-radius:24px;font-weight:700;margin-top:8px}
-.app-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px}
-.app-card{background:#fff;border-radius:16px;padding:12px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.app-icon{width:50px;height:50px;border-radius:12px;background:#e8f5e9;display:flex;align-items:center;justify-content:center;color:#0a7e07;font-weight:800;font-size:20px;margin-bottom:8px}
-.app-name{font-weight:600;font-size:14px}
-.app-size{font-size:11px;color:#0a7e07;font-weight:700;margin-top:2px}
-.download-btn{background:#0a7e07;color:#fff;border:none;width:100%;padding:8px;border-radius:20px;font-weight:600;margin-top:8px;font-size:13px}
-.nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0 20px 0;border-top:1px solid #e8eaed}
-.nav-item{text-align:center;font-size:10px;color:#5f6368}
-.nav-item.active{color:#0a7e07;font-weight:700}
-</style>
-</head>
-<body>
-<div class="header">
-<div class="logo">Z</div>
-<div class="brand"><h1>ZONEX</h1><p>V1 Foundation • Zo Technology</p></div>
-<div class="badge">V1 • ANY DATA</div>
-</div>
-
-<div class="banner">
-<h2>👑 ZONEX V1 FOUNDATION</h2>
-<p>By Zo Technology • Next Google</p>
-<p style="margin-top:10px;background:rgba(255,255,255,.2);padding:6px;border-radius:10px">✅ ANY AMOUNT OF DATA — Unlimited Uploads & Downloads</p>
-</div>
-
-<div class="search">🔍 <input placeholder="Search billion apps on ZONEX"></div>
-
-<div class="upload-area">
-<h3>📤 Upload App - ANY SIZE</h3>
-<p>Upload APK, Game, App - 10MB, 1GB, 10GB, 100GB - ZONEX accepts ANY AMOUNT</p>
-<input type="file" id="fileInput" style="display:none">
-<button class="upload-btn" onclick="document.getElementById('fileInput').click()">Choose File - Any Size</button>
-<p id="fileName" style="margin-top:10px;color:#0a7e07;font-weight:700"></p>
-</div>
-
-<div class="app-grid">
-<div class="app-card">
-<div class="app-icon">W</div>
-<div class="app-name">Wallpaper App</div>
-<div class="app-size">📦 2.4 GB • Any Data</div>
-<button class="download-btn">Download</button>
-</div>
-<div class="app-card">
-<div class="app-icon">G</div>
-<div class="app-name">Cloud Game 20GB</div>
-<div class="app-size">📦 20 GB • Any Data</div>
-<button class="download-btn">Download</button>
-</div>
-<div class="app-card">
-<div class="app-icon">A</div>
-<div class="app-name">AI Gallery Pro</div>
-<div class="app-size">📦 15.5 GB • Any Data</div>
-<button class="download-btn">Download</button>
-</div>
-<div class="app-card">
-<div class="app-icon">S</div>
-<div class="app-name">Zo System OS</div>
-<div class="app-size">📦 50 GB • Any Data</div>
-<button class="download-btn">Download</button>
-</div>
-</div>
-
-<div class="nav">
-<div class="nav-item active">📱 Apps</div>
-<div class="nav-item">🎮 Games</div>
-<div class="nav-item">📤 Upload</div>
-<div class="nav-item">👤 Zo Tech</div>
-</div>
-
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ZONEX V2 - Any Data</title>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}body{background:#f6fef7}.header{background:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 4px rgba(0,0,0,.1);position:sticky;top:0;z-index:10}.logo{display:flex;gap:10px;align-items:center}.logo-icon{background:#15803d;color:#fff;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px}.logo h1{font-size:19px;color:#15803d}.logo p{font-size:11px;color:#666}.badge{background:#dcfce7;color:#15803d;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:800}.banner{background:linear-gradient(135deg,#15803d,#16a34a);color:#fff;margin:12px;border-radius:18px;padding:20px;text-align:center}.banner h2{font-size:20px}.banner p{font-size:12px;opacity:.9;margin:6px 0 10px}.banner-tag{background:rgba(255,255,255,.22);padding:10px;border-radius:12px;font-size:13px;font-weight:700}.search{margin:12px;background:#fff;border-radius:28px;padding:12px 18px;display:flex;gap:10px;box-shadow:0 2px 10px rgba(0,0,0,.06)}.search input{border:none;outline:none;flex:1;font-size:15px}.upload{background:#fff;margin:12px;border:2px dashed #16a34a;border-radius:18px;padding:20px;text-align:center}.upload h3{color:#15803d;margin-bottom:6px}.upload p{font-size:12px;color:#666;margin-bottom:14px}.btn{background:#15803d;color:#fff;border:none;padding:13px 26px;border-radius:28px;font-weight:800;font-size:14px}.progress{display:none;margin-top:14px}.bar{height:10px;background:#e8f5e9;border-radius:10px;overflow:hidden}.fill{height:100%;background:#16a34a;width:0%;transition:.3s}.apps{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}.card{background:#fff;border-radius:18px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.06)}.icon{width:50px;height:50px;border-radius:14px;background:#f0fdf4;display:flex;align-items:center;justify-content:center;font-weight:900;color:#15803d;font-size:22px;margin-bottom:10px}.card h4{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:11px;color:#15803d;font-weight:700;margin:4px 0 10px}.dl{background:#15803d;color:#fff;border:none;width:100%;padding:10px;border-radius:22px;font-weight:800}.status{margin:12px;background:#dcfce7;padding:12px;border-radius:12px;font-size:13px;color:#166534;text-align:center;display:none}</style></head><body>
+<div class="header"><div class="logo"><div class="logo-icon">Z</div><div><h1>ZONEX</h1><p>V2 • Any Data • Zo Tech</p></div></div><div class="badge">V2 LIVE</div></div>
+<div class="banner"><h2>ZONEX V2 - WORKING PLAY STORE</h2><p>By Zo Technology - From Agbor to the World</p><div class="banner-tag">✅ ANY AMOUNT OF DATA - Upload 100GB, 1TB, ANY SIZE</div></div>
+<div class="search"><span>🔍</span><input id="q" placeholder="Search billion apps - WhatsApp, Game, AI..." oninput="doSearch()"></div>
+<div class="upload"><h3>📤 Upload App - ANY SIZE</h3><p>Choose ANY file - APK, Video, Game - 10MB to 100GB+ - ZONEX accepts ALL</p><input type="file" id="f" hidden onchange="doUpload(this.files[0])"><button class="btn" onclick="document.getElementById('f').click()">Choose File - Any Size</button><div class="progress" id="pbox"><div class="bar"><div class="fill" id="pfill"></div></div><p id="ptxt" style="font-size:12px;margin-top:6px">Uploading...</p></div></div>
+<div class="status" id="sbox"></div><div class="apps" id="grid"></div>
 <script>
-document.getElementById('fileInput').addEventListener('change', function(e){
-let file = e.target.files[0];
-if(file){
-let size = (file.size / (1024*1024*1024)).toFixed(2);
-document.getElementById('fileName').innerHTML = "Selected: " + file.name + " (" + size + " GB) - READY FOR ZONEX!";
-}
-});
-</script>
-</body>
-</html>
+const defaults=[{name:"Wallpaper App 2.4GB",size:"2.4 GB",l:"W"},{name:"Cloud Game 20GB",size:"20 GB",l:"G"},{name:"AI Gallery Pro",size:"15.5 GB",l:"A"},{name:"Zo System OS",size:"50 GB",l:"S"},{name:"WhatsApp Zo Mod",size:"120 MB",l:"W"},{name:"GTA Zo Edition",size:"12 GB",l:"G"},{name:"Netflix Zo Premium",size:"2.1 GB",l:"N"},{name:"Facebook Lite Zo",size:"45 MB",l:"F"},];
+let apps=JSON.parse(localStorage.getItem('zonex_v2')||'null')||defaults;
+function render(list){const g=document.getElementById('grid');g.innerHTML='';if(!list.length){g.innerHTML='<p style="grid-column:1/3;text-align:center;padding:20px;color:#666">No apps found</p>';return}list.forEach(a=>{const d=document.createElement('div');d.className='card';d.innerHTML=`<div class="icon">${a.l}</div><h4>${a.name}</h4><div class="meta">📦 ${a.size} • Any Data</div><button class="dl" onclick="dl('${a.name.replace(/'/g,"")}')">Download</button>`;g.appendChild(d);});}
+function doSearch(){const q=document.getElementById('q').value.toLowerCase();render(apps.filter(a=>a.name.toLowerCase().includes(q)));}
+function doUpload(file){if(!file)return;let sz=file.size>1073741824?(file.size/1073741824).toFixed(2)+' GB':(file.size/1048576).toFixed(1)+' MB';let b=document.getElementById('pbox'),fi=document.getElementById('pfill'),tx=document.getElementById('ptxt');b.style.display='block';fi.style.width='0%';let p=0;let iv=setInterval(()=>{p+=Math.random()*25+8;if(p>=100){p=100;clearInterval(iv);let na={name:file.name,size:sz,l:file.name[0].toUpperCase()};apps.unshift(na);localStorage.setItem('zonex_v2',JSON.stringify(apps));render(apps);tx.textContent='✅ Uploaded '+file.name+' ('+sz+') LIVE!';show('✅ '+file.name+' ('+sz+') uploaded! ANY DATA accepted! Search am now!');setTimeout(()=>b.style.display='none',2500);}fi.style.width=p+'%';if(p<100)tx.textContent='Uploading '+file.name+' - '+Math.floor(p)+'% - '+sz;},130);}
+function dl(n){show('⬇️ Downloading '+n+'...');setTimeout(()=>show('✅ '+n+' downloaded! (V3 go get real file storage)'),1500)}
+function show(m){let s=document.getElementById('sbox');s.style.display='block';s.textContent=m;setTimeout(()=>s.style.display='none',4000)}
+render(apps);
+</script></body></html>
