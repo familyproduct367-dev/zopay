@@ -1,0 +1,16 @@
+{
+  "name": "ZO PLAY STORE V1 - By Zo Technology",
+  "short_name": "ZO PLAY STORE",
+  "description": "ZONEX Kingdom - Billion Apps - Any Amount of Data - By Zo Technology",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a7e07",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/888/888879.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
