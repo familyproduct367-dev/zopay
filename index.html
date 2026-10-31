@@ -1,29 +1,204 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZONEX V5 LITE</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}body{background:#f8faf8}.h{background:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,.1);position:sticky;top:0;z-index:10}.logo{font-weight:900;color:#01875f;font-size:18px}.b{margin:10px;background:linear-gradient(90deg,#01875f,#7c4dff);color:#fff;padding:12px;border-radius:12px;text-align:center;font-size:13px;font-weight:700}.tabs{display:flex;gap:6px;padding:0 10px;margin:8px 0;overflow:auto}.t{padding:8px 14px;border:1px solid #dadce0;background:#fff;border-radius:20px;font-size:12px;white-space:nowrap}.t.a{background:#01875f;color:#fff}.s{margin:10px;background:#f1f3f4;border-radius:20px;padding:10px 14px;display:flex;gap:8px}.s input{border:none;outline:none;flex:1;background:transparent;font-size:13px}.apps{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}.c{background:#fff;border-radius:14px;padding:10px;box-shadow:0 1px 3px rgba(0,0,0,.08)}.i{width:44px;height:44px;border-radius:10px;background:#01875f;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:6px}.c h4{font-size:11px}.m{font-size:9px;color:#666}.d{background:#01875f;color:#fff;border:none;width:100%;padding:7px;border-radius:14px;font-size:11px;margin-top:6px;font-weight:700}.card{background:#fff;margin:10px;border-radius:14px;padding:14px}.card input,.card select,.card textarea{width:100%;padding:10px;border:1px solid #dadce0;border-radius:8px;margin-bottom:8px;font-size:12px}.btn{background:#01875f;color:#fff;border:none;padding:11px;border-radius:20px;width:100%;font-weight:700;font-size:12px}.hidden{display:none}.st{margin:10px;background:#e6f4ea;padding:10px;border-radius:10px;font-size:12px;text-align:center;display:none}</style></head><body>
-<div class="h"><div class="logo">Z ZONEX V5 LITE</div><div style="font-size:10px;background:#ede7f6;padding:4px 8px;border-radius:10px;color:#7c4dff;font-weight:800">V5 LITE</div></div>
-<div class="b">ZONEX V5 LITE - Short Code - 100% Working for Phone!</div>
-<div class="tabs"><div class="t a" id="t1" onclick="tab('store')">🏪 Store</div><div class="t" id="t2" onclick="tab('dev')">👨‍💻 Dev</div><div class="t" id="t3" onclick="tab('my')">📱 My Apps</div><div class="t" id="t4" onclick="tab('up')">📤 Upload</div></div>
-<div id="v-store"><div class="s"><span>🔍</span><input id="q" placeholder="Search apps..." oninput="search()"></div><div class="st" id="box"></div><div class="apps" id="grid"></div></div>
-<div id="v-dev" class="hidden"><div class="card" id="auth"><h3 style="color:#01875f;font-size:14px;margin-bottom:8px">Developer Account</h3><input id="dn" placeholder="Name e.g. Zo Studios"><input id="de" placeholder="Email"><button class="btn" onclick="reg()">Create Account</button><button class="btn" style="background:#fff;color:#01875f;border:1px solid #01875f;margin-top:6px" onclick="login()">Login</button><button class="btn" style="background:#ffebee;color:#d32f2f;border:1px solid #d32f2f;margin-top:6px" onclick="localStorage.clear();location.reload()">🗑️ Clear Fix</button></div><div class="card hidden" id="prof"><h3 id="pn">Zo Dev</h3><p id="pe" style="font-size:11px;color:#666"></p><p style="font-size:11px;color:#01875f;margin-top:6px">Apps: <span id="sc">0</span> • Downs: <span id="sd">0</span></p><button class="btn" style="background:#fff;color:#01875f;border:1px solid #01875f;margin-top:8px" onclick="logout()">Logout</button></div></div><div id="v-my" class="hidden"><div class="card"><h3>My Apps</h3></div><div class="apps" id="mygrid"></div></div>
-<div id="v-up" class="hidden"><div class="card"><h3 style="color:#01875f;font-size:14px;margin-bottom:8px">Publish App</h3><input type="file" id="f" hidden onchange="onFile(this.files[0])"><div style="border:2px dashed #01875f;padding:12px;border-radius:10px;text-align:center;margin-bottom:8px" onclick="document.getElementById('f').click()"><p id="fl" style="font-size:12px;font-weight:700;color:#01875f">📁 Choose File</p><p id="fs" style="font-size:10px;color:#666">Any size</p></div><input id="an" placeholder="App Name"><select id="ac"><option>Games</option><option>Social</option><option>Tools</option><option>AI Apps</option><option>Entertainment</option><option>Education</option></select><button class="btn" onclick="pub()">🚀 Publish</button></div></div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZONEX V5 LITE</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#f8faf8}
+.h{background:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,.1);position:sticky;top:0;z-index:10}
+.logo{font-weight:900;color:#01875f;font-size:18px}
+.b{margin:10px;background:linear-gradient(90deg,#01875f,#7c4dff);color:#fff;padding:12px;border-radius:12px;text-align:center;font-size:13px;font-weight:700}
+.tabs{display:flex;gap:6px;padding:0 10px;margin:8px 0;overflow:auto}
+.t{padding:8px 14px;border:1px solid #dadce0;background:#fff;border-radius:20px;font-size:12px;white-space:nowrap}
+.t.a{background:#01875f;color:#fff}
+.s{margin:10px;background:#f1f3f4;border-radius:20px;padding:10px 14px;display:flex;gap:8px}
+.s input{border:none;outline:none;flex:1;background:transparent;font-size:13px}
+.apps{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.c{background:#fff;border-radius:14px;padding:10px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.i{width:44px;height:44px;border-radius:10px;background:#01875f;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:6px}
+.c h4{font-size:11px}
+.m{font-size:9px;color:#666}
+.d{background:#01875f;color:#fff;border:none;width:100%;padding:7px;border-radius:14px;font-size:11px;margin-top:6px;font-weight:700}
+.card{background:#fff;margin:10px;border-radius:14px;padding:14px}
+.card input,.card select{width:100%;padding:10px;border:1px solid #dadce0;border-radius:8px;margin-bottom:8px;font-size:12px}
+.btn{background:#01875f;color:#fff;border:none;padding:11px;border-radius:20px;width:100%;font-weight:700;font-size:12px}
+.hidden{display:none}
+.st{margin:10px;background:#e6f4ea;padding:10px;border-radius:10px;font-size:12px;text-align:center;display:none}
+</style>
+</head>
+<body>
+
+<div class="h">
+  <div class="logo">Z ZONEX V5 LITE</div>
+  <div style="font-size:10px;background:#ede7f6;padding:4px 8px;border-radius:10px;color:#7c4dff;font-weight:800">V5 LITE</div>
+</div>
+
+<div class="b">ZONEX V5 LITE - Formatted for Phone - Working!</div>
+
+<div class="tabs">
+  <div class="t a" id="t1" onclick="tab('store')">Store</div>
+  <div class="t" id="t2" onclick="tab('dev')">Dev</div>
+  <div class="t" id="t3" onclick="tab('my')">My Apps</div>
+  <div class="t" id="t4" onclick="tab('up')">Upload</div>
+</div>
+
+<div id="v-store">
+  <div class="s">
+    <span>Search</span>
+    <input id="q" placeholder="Search apps..." oninput="search()">
+  </div>
+  <div class="st" id="box"></div>
+  <div class="apps" id="grid"></div>
+</div>
+
+<div id="v-dev" class="hidden">
+  <div class="card" id="auth">
+    <h3 style="color:#01875f;font-size:14px;margin-bottom:8px">Developer Account</h3>
+    <input id="dn" placeholder="Name e.g. Zo Studios">
+    <input id="de" placeholder="Email">
+    <button class="btn" onclick="reg()">Create Account</button>
+    <button class="btn" style="background:#fff;color:#01875f;border:1px solid #01875f;margin-top:6px" onclick="login()">Login</button>
+    <button class="btn" style="background:#ffebee;color:#d32f2f;border:1px solid #d32f2f;margin-top:6px" onclick="localStorage.clear();location.reload()">Clear Fix</button>
+  </div>
+  <div class="card hidden" id="prof">
+    <h3 id="pn">Zo Dev</h3>
+    <p id="pe" style="font-size:11px;color:#666"></p>
+    <p style="font-size:11px;color:#01875f;margin-top:6px">Apps: <span id="sc">0</span> - Downs: <span id="sd">0</span></p>
+    <button class="btn" style="background:#fff;color:#01875f;border:1px solid #01875f;margin-top:8px" onclick="logout()">Logout</button>
+  </div>
+</div><div id="v-my" class="hidden">
+  <div class="card"><h3>My Apps</h3></div>
+  <div class="apps" id="mygrid"></div>
+</div>
+
+<div id="v-up" class="hidden">
+  <div class="card">
+    <h3 style="color:#01875f;font-size:14px;margin-bottom:8px">Publish App</h3>
+    <input type="file" id="f" hidden onchange="onFile(this.files[0])">
+    <div style="border:2px dashed #01875f;padding:12px;border-radius:10px;text-align:center;margin-bottom:8px" onclick="document.getElementById('f').click()">
+      <p id="fl" style="font-size:12px;font-weight:700;color:#01875f">Choose File</p>
+      <p id="fs" style="font-size:10px;color:#666">Any size</p>
+    </div>
+    <input id="an" placeholder="App Name">
+    <select id="ac">
+      <option>Games</option>
+      <option>Social</option>
+      <option>Tools</option>
+      <option>AI Apps</option>
+      <option>Entertainment</option>
+      <option>Education</option>
+    </select>
+    <button class="btn" onclick="pub()">Publish</button>
+  </div>
+</div>
+
 <script>
-let apps=[{n:"Wallpaper App",s:"2.4 GB",c:"Tools",d:"ZONEX Official",l:"W",dw:12400,r:4.8},{n:"Cloud Game",s:"20 GB",c:"Games",d:"Zo Studios",l:"G",dw:8900,r:4.6},{n:"AI Gallery",s:"15.5 GB",c:"AI Apps",d:"Zo AI Lab",l:"A",dw:5600,r:4.9},{n:"Zo System OS",s:"50 GB",c:"Zo Exclusive",d:"Zo Tech",l:"S",dw:21000,r:5.0},{n:"WhatsApp Zo",s:"120 MB",c:"Social",d:"Zo Mods",l:"W",dw:45000,r:4.7},{n:"GTA Zo",s:"12 GB",c:"Games",d:"RockZo",l:"G",dw:15000,r:4.8},{n:"Zo Music",s:"80 MB",c:"Entertainment",d:"Zo Music",l:"M",dw:32000,r:4.9},{n:"Zo Learn",s:"200 MB",c:"Education",d:"Zo Edu",l:"L",dw:18000,r:4.8}];
-let dev=null;try{dev=JSON.parse(localStorage.getItem('dev'))}catch(e){}
-let saved=null;try{saved=JSON.parse(localStorage.getItem('ap'))}catch(e){}
-if(saved&&saved.length)apps=saved.concat(apps.filter(a=>!saved.some(x=>x.n===a.n)));
+let apps=[
+{n:"Wallpaper App",s:"2.4 GB",c:"Tools",d:"ZONEX Official",l:"W",dw:12400,r:4.8},
+{n:"Cloud Game",s:"20 GB",c:"Games",d:"Zo Studios",l:"G",dw:8900,r:4.6},
+{n:"AI Gallery",s:"15.5 GB",c:"AI Apps",d:"Zo AI Lab",l:"A",dw:5600,r:4.9},
+{n:"Zo System OS",s:"50 GB",c:"Zo Exclusive",d:"Zo Tech",l:"S",dw:21000,r:5.0},
+{n:"WhatsApp Zo",s:"120 MB",c:"Social",d:"Zo Mods",l:"W",dw:45000,r:4.7},
+{n:"GTA Zo",s:"12 GB",c:"Games",d:"RockZo",l:"G",dw:15000,r:4.8},
+{n:"Zo Music",s:"80 MB",c:"Entertainment",d:"Zo Music",l:"M",dw:32000,r:4.9},
+{n:"Zo Learn",s:"200 MB",c:"Education",d:"Zo Edu",l:"L",dw:18000,r:4.8}
+];
+
+let dev=null;
+try{dev=JSON.parse(localStorage.getItem('dev'))}catch(e){}
+let saved=null;
+try{saved=JSON.parse(localStorage.getItem('ap'))}catch(e){}
+if(saved&&saved.length){
+  apps=saved.concat(apps.filter(a=>!saved.some(x=>x.n===a.n)));
+}
 let sel=null;
 function save(){try{localStorage.setItem('ap',JSON.stringify(apps))}catch(e){}}
-function tab(x){['store','dev','my','up'].forEach(v=>{document.getElementById('v-'+v).classList.add('hidden');document.getElementById('t'+(['store','dev','my','up'].indexOf(v)+1)).classList.remove('a')});document.getElementById('v-'+x).classList.remove('hidden');document.getElementById('t'+(['store','dev','my','up'].indexOf(x)+1)).classList.add('a');if(x==='my')my();if(x==='dev')ref()}
-function render(list){let g=document.getElementById('grid');g.innerHTML='';list.forEach((a,i)=>{let idx=apps.indexOf(a);let div=document.createElement('div');div.className='c';div.innerHTML=`<div class="i">${a.l}</div><h4>${a.n}</h4><div class="m">⭐ ${a.r} • ${a.s}</div><div class="m">👨‍💻 ${a.d}</div><div class="m">📦 ${a.dw} downs • ${a.c}</div><button class="d" onclick="dl(${idx})">Install</button>`;g.appendChild(div)})}
-function search(){let q=document.getElementById('q').value.toLowerCase();let list=apps.filter(a=>a.n.toLowerCase().includes(q)||a.c.toLowerCase().includes(q)||a.d.toLowerCase().includes(q));render(list)}
+function tab(x){
+  ['store','dev','my','up'].forEach(v=>{
+    document.getElementById('v-'+v).classList.add('hidden');
+    document.getElementById('t'+(['store','dev','my','up'].indexOf(v)+1)).classList.remove('a')
+  });
+  document.getElementById('v-'+x).classList.remove('hidden');
+  document.getElementById('t'+(['store','dev','my','up'].indexOf(x)+1)).classList.add('a');
+  if(x==='my')my();if(x==='dev')ref()
+}
+function render(list){
+  let g=document.getElementById('grid');g.innerHTML='';
+  list.forEach((a,i)=>{
+    let idx=apps.indexOf(a);
+    let div=document.createElement('div');div.className='c';
+    div.innerHTML='<div class="i">'+a.l+'</div><h4>'+a.n+'</h4><div class="m">Star '+a.r+' - '+a.s+'</div><div class="m">'+a.d+'</div><div class="m">'+a.dw+' downs - '+a.c+'</div><button class="d" onclick="dl('+idx+')">Install</button>';
+    g.appendChild(div)
+  })
+}
+function search(){
+  let q=document.getElementById('q').value.toLowerCase();
+  let list=apps.filter(a=>a.n.toLowerCase().includes(q)||a.c.toLowerCase().includes(q)||a.d.toLowerCase().includes(q));
+  render(list)
+}
 function dl(i){let a=apps[i];a.dw++;save();render(apps);show('Installing '+a.n);setTimeout(()=>show('Installed '+a.n),800)}
-function my(){let g=document.getElementById('mygrid');g.innerHTML='';if(!dev){g.innerHTML='<p style="grid-column:1/3;text-align:center;padding:20px;color:#666">Login first</p>';return}let mine=apps.filter(a=>a.d===dev.n);if(!mine.length){g.innerHTML='<p style="grid-column:1/3;text-align:center;padding:20px;color:#666">No apps yet</p>';return}mine.forEach(a=>{let idx=apps.indexOf(a);let d=document.createElement('div');d.className='c';d.innerHTML=`<div class="i">${a.l}</div><h4>${a.n}</h4><div class="m">${a.s}</div><button class="d" style="background:#d32f2f" onclick="del(${idx})">Delete</button>`;g.appendChild(d)})}
+function my(){
+  let g=document.getElementById('mygrid');g.innerHTML='';
+  if(!dev){g.innerHTML='<p style="grid-column:1/3;text-align:center;padding:20px;color:#666">Login first</p>';return}
+  let mine=apps.filter(a=>a.d===dev.n);
+  if(!mine.length){g.innerHTML='<p style="grid-column:1/3;text-align:center;padding:20px;color:#666">No apps yet</p>';return}
+  mine.forEach(a=>{
+    let idx=apps.indexOf(a);let d=document.createElement('div');d.className='c';
+    d.innerHTML='<div class="i">'+a.l+'</div><h4>'+a.n+'</h4><div class="m">'+a.s+'</div><button class="d" style="background:#d32f2f" onclick="del('+idx+')">Delete</button>';
+    g.appendChild(d)
+  })
+}
 function del(i){if(confirm('Delete?')){apps.splice(i,1);save();my();render(apps)}}
-function ref(){let auth=document.getElementById('auth'),prof=document.getElementById('prof');if(dev){auth.classList.add('hidden');prof.classList.remove('hidden');document.getElementById('pn').textContent=dev.n;document.getElementById('pe').textContent=dev.e;let mine=apps.filter(a=>a.d===dev.n);document.getElementById('sc').textContent=mine.length;document.getElementById('sd').textContent=mine.reduce((s,a)=>s+a.dw,0)}else{auth.classList.remove('hidden');prof.classList.add('hidden')}}
-function reg(){let n=document.getElementById('dn').value.trim(),e=document.getElementById('de').value.trim();if(!n||!e){show('Fill name & email');return}dev={n:n,e:e};localStorage.setItem('dev',JSON.stringify(dev));show('Welcome '+n);ref();tab('up')}
-function login(){let n=document.getElementById('dn').value.trim(),e=document.getElementById('de').value.trim();if(!n){show('Enter name');return}dev={n:n,e:e};localStorage.setItem('dev',JSON.stringify(dev));show('Logged in');ref()}
+function ref(){
+  let auth=document.getElementById('auth');let prof=document.getElementById('prof');
+  if(dev){auth.classList.add('hidden');prof.classList.remove('hidden');
+    document.getElementById('pn').textContent=dev.n;
+    document.getElementById('pe').textContent=dev.e;
+    let mine=apps.filter(a=>a.d===dev.n);
+    document.getElementById('sc').textContent=mine.length;
+    document.getElementById('sd').textContent=mine.reduce((s,a)=>s+a.dw,0)
+  }else{auth.classList.remove('hidden');prof.classList.add('hidden')}
+}
+function reg(){
+  let n=document.getElementById('dn').value.trim();
+  let e=document.getElementById('de').value.trim();
+  if(!n||!e){show('Fill name and email');return}
+  dev={n:n,e:e};localStorage.setItem('dev',JSON.stringify(dev));
+  show('Welcome '+n);ref();tab('up')
+}
+function login(){
+  let n=document.getElementById('dn').value.trim();
+  let e=document.getElementById('de').value.trim();
+  if(!n){show('Enter name');return}
+  dev={n:n,e:e};localStorage.setItem('dev',JSON.stringify(dev));
+  show('Logged in');ref()
+}
 function logout(){localStorage.removeItem('dev');dev=null;ref();show('Logged out')}
-function onFile(f){if(!f)return;sel=f;let sz=f.size>1073741824?(f.size/1073741824).toFixed(1)+' GB':(f.size/1048576).toFixed(0)+' MB';document.getElementById('fl').textContent='✅ '+f.name;document.getElementById('fs').textContent=sz;document.getElementById('an').value=f.name}
-function pub(){if(!dev){show('Create account first');tab('dev');return}let n=document.getElementById('an').value.trim(),c=document.getElementById('ac').value;if(!n){show('Enter name');return}let sz='Unknown';if(sel)sz=sel.size>1073741824?(sel.size/1073741824).toFixed(1)+' GB':(sel.size/1048576).toFixed(0)+' MB';let na={n:n,s:sz,c:c,d:dev.n,l:n[0].toUpperCase(),dw:0,r:4.8};apps.unshift(na);save();render(apps);show('Published '+n);tab('store')}
-function show(m){let b=document.getElementById('box');b.style.display='block';b.textContent=m;setTimeout(()=>b.style.display='none',3000)}
+function onFile(f){
+  if(!f)return;sel=f;
+  let sz=f.size>1073741824?(f.size/1073741824).toFixed(1)+' GB':(f.size/1048576).toFixed(0)+' MB';
+  document.getElementById('fl').textContent='File: '+f.name;
+  document.getElementById('fs').textContent=sz;
+  document.getElementById('an').value=f.name
+}
+function pub(){
+  if(!dev){show('Create account first');tab('dev');return}
+  let n=document.getElementById('an').value.trim();
+  let c=document.getElementById('ac').value;
+  if(!n){show('Enter name');return}
+  let sz='Unknown';
+  if(sel)sz=sel.size>1073741824?(sel.size/1073741824).toFixed(1)+' GB':(sel.size/1048576).toFixed(0)+' MB';
+  let na={n:n,s:sz,c:c,d:dev.n,l:n[0].toUpperCase(),dw:0,r:4.8};
+  apps.unshift(na);save();render(apps);show('Published '+n);tab('store')
+}
+function show(m){
+  let b=document.getElementById('box');
+  b.style.display='block';b.textContent=m;
+  setTimeout(()=>b.style.display='none',3000)
+}
 render(apps);ref();
-</script></body></html>
+</script>
+</body>
+</html>
