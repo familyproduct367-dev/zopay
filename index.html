@@ -89,10 +89,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    opacity: 0.9;
-}
-
 .secondary {
     background: #101d3a;
 }
@@ -106,7 +102,6 @@ button:hover {
 .text-button {
     background: none;
     color: #078d6a;
-    padding: 10px;
 }
 
 .small {
@@ -280,6 +275,17 @@ footer {
         </p>
     </div>
 
+    <div class="card hidden" id="newPasswordBox">
+        <h2>Choose a new password</h2>
+        <p class="subtitle">Enter your new account password.</p>
+
+        <div id="newPasswordMessage" class="message"></div>
+
+        <input type="password" id="newPassword" placeholder="New password">
+
+        <button onclick="updatePassword()">Update Password</button>
+    </div>
+
 </div>
 
 <div class="dashboard hidden" id="dashboard">
@@ -322,7 +328,7 @@ footer {
         <strong>ZO PAY V3:</strong><br>
         Your account is connected to Supabase authentication.
         Real payment processing, payment links, withdrawals and
-        balances will require secure backend and payment-provider
+        balances require a secure backend and payment-provider
         integration.
     </div>
 
@@ -336,7 +342,7 @@ footer {
 
 <script>
 
-// STEP 2: ADD YOUR SUPABASE DETAILS HERE
+// ADD YOUR SUPABASE DETAILS HERE
 
 const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
 const SUPABASE_PUBLISHABLE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
@@ -362,9 +368,9 @@ function showMessage(id, message, type) {
 }
 
 function hideAll() {
-    document.getElementById("loginBox").classList.add("hidden");
-    document.getElementById("signupBox").classList.add("hidden");
-    document.getElementById("resetBox").classList.add("hidden");
+    document.querySelectorAll(".card").forEach(card => {
+        card.classList.add("hidden");
+    });
 }
 
 function showLogin() {
@@ -412,8 +418,8 @@ async function signup() {
     }
 
     const { data, error } = await db.auth.signUp({
-        email: email,
-        password: password,
+        email,
+        password,
         options: {
             data: {
                 full_name: name,
@@ -485,7 +491,7 @@ async function googleLogin() {
     }
 }
 
-// PASSWORD RESET
+// REQUEST PASSWORD RESET
 
 async function resetPassword() {
     if (!checkConnection()) return;
@@ -510,6 +516,38 @@ async function resetPassword() {
     showMessage(
         "resetMessage",
         "If the account exists, a password reset email will be sent.",
+        "success"
+    );
+}
+
+// UPDATE PASSWORD AFTER RESET LINK
+
+async function updatePassword() {
+    if (!checkConnection()) return;
+
+    const password = document.getElementById("newPassword").value;
+
+    if (password.length < 8) {
+        showMessage(
+            "newPasswordMessage",
+            "Password must be at least 8 characters.",
+            "error"
+        );
+        return;
+    }
+
+    const { error } = await db.auth.updateUser({
+        password: password
+    });
+
+    if (error) {
+        showMessage("newPasswordMessage", error.message, "error");
+        return;
+    }
+
+    showMessage(
+        "newPasswordMessage",
+        "Password updated successfully. You can now sign in.",
         "success"
     );
 }
@@ -571,7 +609,10 @@ async function startApp() {
 
     db.auth.onAuthStateChange((event, session) => {
         if (event === "PASSWORD_RECOVERY") {
-            alert("Password recovery link confirmed. You can now set a new password after adding the password-update screen.");
+            document.getElementById("authArea").classList.remove("hidden");
+            document.getElementById("dashboard").classList.add("hidden");
+            hideAll();
+            document.getElementById("newPasswordBox").classList.remove("hidden");
         }
 
         if (session && event === "SIGNED_IN") {
