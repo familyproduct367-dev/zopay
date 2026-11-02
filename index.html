@@ -3,193 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZO PAY V3</title>
+<title>ZO PAY V4</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background: #f3f6fb;
-    color: #172033;
-}
-
-header {
-    background: #101d3a;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.logo span {
-    color: #28d6a0;
-}
-
-.container {
-    max-width: 480px;
-    margin: 35px auto;
-    padding: 20px;
-}
-
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
-}
-
-h2 {
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    color: #748096;
-    margin-bottom: 22px;
-    font-size: 14px;
-}
-
-input, select {
-    width: 100%;
-    padding: 14px;
-    margin: 9px 0;
-    border: 1px solid #dce2ec;
-    border-radius: 9px;
-    outline: none;
-    font-size: 15px;
-    background: white;
-}
-
-input:focus, select:focus {
-    border-color: #15b88b;
-}
-
-button {
-    width: 100%;
-    padding: 14px;
-    margin-top: 12px;
-    border: none;
-    border-radius: 9px;
-    background: #12b886;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.secondary {
-    background: #101d3a;
-}
-
-.google {
-    background: white;
-    color: #172033;
-    border: 1px solid #dce2ec;
-}
-
-.text-button {
-    background: none;
-    color: #078d6a;
-}
-
-.small {
-    text-align: center;
-    font-size: 14px;
-    margin-top: 15px;
-    color: #748096;
-}
-
-.hidden {
-    display: none !important;
-}
-
-.message {
-    padding: 12px;
-    margin: 12px 0;
-    border-radius: 8px;
-    font-size: 14px;
-    display: none;
-    overflow-wrap: anywhere;
-}
-
-.success {
-    background: #e2fff3;
-    color: #08764f;
-}
-
-.error {
-    background: #ffe9e9;
-    color: #b42318;
-}
-
-.dashboard {
-    max-width: 900px;
-    margin: 25px auto;
-    padding: 20px;
-}
-
-.welcome {
-    background: #101d3a;
-    color: white;
-    padding: 28px;
-    border-radius: 16px;
-    margin-bottom: 20px;
-}
-
-.welcome p {
-    color: #c5d0e5;
-    margin-top: 8px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-}
-
-.box {
-    background: white;
-    padding: 22px;
-    border-radius: 13px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-}
-
-.box h3 {
-    color: #718096;
-    font-size: 14px;
-    margin-bottom: 12px;
-}
-
-.box strong {
-    font-size: 20px;
-}
-
-.notice {
-    background: #fff6df;
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 20px;
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
-    color: #8490a3;
-    font-size: 12px;
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f3f6fb;color:#172033}
+header{background:#101d3a;color:white;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:bold}.logo span{color:#24d6a0}
+button{border:0;padding:13px 17px;border-radius:9px;background:#10b889;color:white;font-weight:bold;cursor:pointer}
+button:hover{opacity:.88}
+input,select{width:100%;padding:13px;margin:9px 0;border:1px solid #dce2ec;border-radius:8px;font-size:15px;background:white}
+a{color:#07956e;cursor:pointer}
+.hidden{display:none!important}
+.auth{max-width:450px;margin:35px auto;padding:20px}
+.card{background:white;padding:23px;border-radius:15px;box-shadow:0 5px 22px #1720330c}
+.card h2{margin-bottom:10px}
+.sub{color:#78849a;font-size:14px;margin-bottom:20px;line-height:1.5}
+.message{padding:12px;border-radius:8px;margin:10px 0;font-size:14px;display:none;overflow-wrap:anywhere}
+.error{background:#ffe8e8;color:#a21d1d}
+.success{background:#e1fff2;color:#08734e}
+.auth button{width:100%;margin-top:10px}
+.dark{background:#101d3a}
+.white{background:white;color:#172033;border:1px solid #ddd}
+.small{text-align:center;margin-top:17px;color:#77849a;font-size:14px}
+.layout{display:flex;min-height:calc(100vh - 65px)}
+.sidebar{width:230px;background:#101d3a;padding:22px 14px;color:white}
+.sidebar h3{margin:8px 10px 25px;color:#aebbd0}
+.nav{display:block;width:100%;text-align:left;background:transparent;color:#d6e0ef;margin:5px 0}
+.nav.active,.nav:hover{background:#203354;color:#36e0ad}
+.main{flex:1;padding:25px;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px;flex-wrap:wrap}
+.top p{color:#77849a;margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;margin:20px 0}
+.stat{background:white;padding:22px;border-radius:13px;box-shadow:0 4px 15px #17203308}
+.stat small{color:#78849a}.stat h2{margin-top:12px;font-size:23px}
+.panel{background:white;padding:23px;border-radius:14px;margin-top:18px;box-shadow:0 4px 15px #17203308}
+.panel h3{margin-bottom:15px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid #edf0f5;flex-wrap:wrap}
+.row:last-child{border:0}
+.form{max-width:550px}
+.form button{width:100%;margin-top:10px}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:500px}
+th,td{text-align:left;padding:14px;border-bottom:1px solid #edf0f5;font-size:14px}
+th{color:#78849a}
+.badge{background:#fff4d8;color:#936400;padding:6px 9px;border-radius:20px;font-size:12px}
+.linkbox{background:#f3f6fb;padding:13px;border-radius:8px;overflow-wrap:anywhere;margin-top:12px}
+footer{text-align:center;padding:22px;color:#8490a3;font-size:12px}
+@media(max-width:650px){
+ .layout{display:block}
+ .sidebar{width:100%;padding:10px;display:flex;overflow-x:auto;gap:5px}
+ .sidebar h3{display:none}
+ .nav{width:auto;white-space:nowrap;font-size:12px;padding:12px}
+ .main{padding:16px}
 }
 </style>
 </head>
@@ -197,433 +65,643 @@ footer {
 <body>
 
 <header>
-    <div class="logo">ZO <span>PAY</span></div>
-    <div>V3.0</div>
+ <div class="logo">ZO <span>PAY</span></div>
+ <span>V4.0</span>
 </header>
 
-<div class="container" id="authArea">
+<!-- AUTHENTICATION -->
 
-    <div class="card" id="loginBox">
-        <h2>Welcome to ZO PAY</h2>
-        <p class="subtitle">Sign in to your payment account.</p>
+<div class="auth" id="authArea">
 
-        <div id="loginMessage" class="message"></div>
+ <div class="card" id="loginBox">
+  <h2>Welcome to ZO PAY</h2>
+  <p class="sub">Your payment journey starts here.</p>
+  <div id="loginMsg" class="message"></div>
+  <input id="loginEmail" type="email" placeholder="Email address">
+  <input id="loginPassword" type="password" placeholder="Password">
+  <button onclick="login()">Sign In</button>
+  <button class="white" onclick="googleLogin()">Continue with Google</button>
+  <p class="small"><a onclick="showReset()">Forgot password?</a></p>
+  <p class="small">New here? <a onclick="showSignup()">Create an account</a></p>
+ </div>
 
-        <input type="email" id="loginEmail" placeholder="Email address">
-        <input type="password" id="loginPassword" placeholder="Password">
+ <div class="card hidden" id="signupBox">
+  <h2>Create your account</h2>
+  <p class="sub">Register your personal or business account.</p>
+  <div id="signupMsg" class="message"></div>
+  <input id="fullName" placeholder="Full name">
+  <input id="signupEmail" type="email" placeholder="Email address">
+  <input id="signupPassword" type="password" placeholder="Password (minimum 8 characters)">
+  <select id="accountType">
+   <option value="personal">Personal Account</option>
+   <option value="business">Business Account</option>
+  </select>
+  <select id="country">
+   <option>Nigeria</option>
+   <option>Ghana</option>
+   <option>South Africa</option>
+   <option>United Kingdom</option>
+   <option>United States</option>
+   <option>Other</option>
+  </select>
+  <button onclick="signup()">Create Account</button>
+  <p class="small"><a onclick="showLogin()">Back to login</a></p>
+ </div>
 
-        <button onclick="login()">Sign In</button>
+ <div class="card hidden" id="resetBox">
+  <h2>Reset password</h2>
+  <p class="sub">Receive a password reset email.</p>
+  <div id="resetMsg" class="message"></div>
+  <input id="resetEmail" type="email" placeholder="Email address">
+  <button onclick="resetPassword()">Send Reset Link</button>
+  <p class="small"><a onclick="showLogin()">Back to login</a></p>
+ </div>
 
-        <button class="google" onclick="googleLogin()">
-            Continue with Google
-        </button>
-
-        <button class="text-button" onclick="showReset()">
-            Forgot password?
-        </button>
-
-        <p class="small">
-            Don't have an account?
-            <a href="#" onclick="showSignup()">Create account</a>
-        </p>
-    </div>
-
-    <div class="card hidden" id="signupBox">
-        <h2>Create your account</h2>
-        <p class="subtitle">Join ZO PAY and manage your payments.</p>
-
-        <div id="signupMessage" class="message"></div>
-
-        <input type="text" id="fullName" placeholder="Full name">
-        <input type="email" id="signupEmail" placeholder="Email address">
-        <input type="password" id="signupPassword" placeholder="Create password">
-
-        <select id="accountType">
-            <option value="personal">Personal Account</option>
-            <option value="business">Business Account</option>
-        </select>
-
-        <select id="country">
-            <option value="Nigeria">Nigeria</option>
-            <option value="Ghana">Ghana</option>
-            <option value="South Africa">South Africa</option>
-            <option value="United Kingdom">United Kingdom</option>
-            <option value="United States">United States</option>
-            <option value="Other">Other country</option>
-        </select>
-
-        <button onclick="signup()">Create Account</button>
-
-        <p class="small">
-            Already registered?
-            <a href="#" onclick="showLogin()">Sign in</a>
-        </p>
-    </div>
-
-    <div class="card hidden" id="resetBox">
-        <h2>Reset password</h2>
-        <p class="subtitle">Enter your email to receive a reset link.</p>
-
-        <div id="resetMessage" class="message"></div>
-
-        <input type="email" id="resetEmail" placeholder="Your email address">
-
-        <button onclick="resetPassword()">Send Reset Link</button>
-
-        <p class="small">
-            <a href="#" onclick="showLogin()">Back to login</a>
-        </p>
-    </div>
-
-    <div class="card hidden" id="newPasswordBox">
-        <h2>Choose a new password</h2>
-        <p class="subtitle">Enter your new account password.</p>
-
-        <div id="newPasswordMessage" class="message"></div>
-
-        <input type="password" id="newPassword" placeholder="New password">
-
-        <button onclick="updatePassword()">Update Password</button>
-    </div>
+ <div class="card hidden" id="newPasswordBox">
+  <h2>New password</h2>
+  <div id="newPasswordMsg" class="message"></div>
+  <input id="newPassword" type="password" placeholder="New password">
+  <button onclick="updatePassword()">Update Password</button>
+ </div>
 
 </div>
 
-<div class="dashboard hidden" id="dashboard">
+<!-- DASHBOARD -->
 
-    <div class="welcome">
-        <h2>Welcome, <span id="userName">User</span>!</h2>
-        <p>Your ZO PAY account is ready.</p>
+<div id="app" class="layout hidden">
+
+ <aside class="sidebar">
+  <h3>ZO PAY MENU</h3>
+  <button class="nav active" onclick="page('overview',this)">Overview</button>
+  <button class="nav" onclick="page('links',this)">Payment Links</button>
+  <button class="nav" onclick="page('transactions',this)">Transactions</button>
+  <button class="nav" onclick="page('profile',this)">My Profile</button>
+  <button class="nav" onclick="page('settings',this)">Settings</button>
+  <button class="nav" onclick="logout()">Sign Out</button>
+ </aside>
+
+ <main class="main">
+
+  <div class="top">
+   <div>
+    <h2 id="pageTitle">Overview</h2>
+    <p>Welcome to your ZO PAY dashboard.</p>
+   </div>
+   <button onclick="page('links')">+ Create Payment Link</button>
+  </div>
+
+  <!-- OVERVIEW -->
+
+  <section id="overviewPage">
+   <div class="welcome"></div>
+
+   <div class="grid">
+    <div class="stat">
+     <small>Account Type</small>
+     <h2 id="overviewType">Personal</h2>
     </div>
-
-    <div class="grid">
-
-        <div class="box">
-            <h3>Account Type</h3>
-            <strong id="userType">Personal</strong>
-        </div>
-
-        <div class="box">
-            <h3>Country</h3>
-            <strong id="userCountry">Nigeria</strong>
-        </div>
-
-        <div class="box">
-            <h3>Account Status</h3>
-            <strong id="userStatus">Registered</strong>
-        </div>
-
-        <div class="box">
-            <h3>Payment Services</h3>
-            <strong>Coming Soon</strong>
-        </div>
-
+    <div class="stat">
+     <small>Account Country</small>
+     <h2 id="overviewCountry">Nigeria</h2>
     </div>
-
-    <div class="box" style="margin-top:20px">
-        <h3>Account Email</h3>
-        <p id="userEmail"></p>
+    <div class="stat">
+     <small>Payment Links</small>
+     <h2 id="linkCount">0</h2>
     </div>
-
-    <div class="notice">
-        <strong>ZO PAY V3:</strong><br>
-        Your account is connected to Supabase authentication.
-        Real payment processing, payment links, withdrawals and
-        balances require a secure backend and payment-provider
-        integration.
+    <div class="stat">
+     <small>Account Status</small>
+     <h2 id="overviewStatus">Pending</h2>
     </div>
+   </div>
 
-    <button class="secondary" onclick="logout()">Sign Out</button>
+   <div class="panel">
+    <h3>Recent Activity</h3>
+    <div id="recentActivity">No activity yet.</div>
+   </div>
 
+   <div class="panel">
+    <h3>Important Notice</h3>
+    <p class="sub">
+     This is a development version. Payment links are previews
+     and do not collect money. Live payment processing will be
+     connected in a future version.
+    </p>
+   </div>
+  </section>
+
+  <!-- PAYMENT LINKS -->
+
+  <section id="linksPage" class="hidden">
+   <div class="panel form">
+    <h3>Create a Payment Link</h3>
+    <p class="sub">Prepare a payment link for your customer.</p>
+
+    <div id="linkMsg" class="message"></div>
+
+    <input id="productName" placeholder="Product or service name">
+    <input id="paymentAmount" type="number" min="1" step="0.01" placeholder="Amount">
+
+    <select id="currency">
+     <option value="NGN">NGN - Nigerian Naira</option>
+     <option value="USD">USD - US Dollar</option>
+     <option value="GBP">GBP - British Pound</option>
+     <option value="EUR">EUR - Euro</option>
+     <option value="GHS">GHS - Ghanaian Cedi</option>
+     <option value="ZAR">ZAR - South African Rand</option>
+    </select>
+
+    <button onclick="createLink()">Create Preview Link</button>
+   </div>
+
+   <div class="panel">
+    <h3>Your Payment Links</h3>
+    <div id="linksList">No payment links created yet.</div>
+   </div>
+  </section>
+
+  <!-- TRANSACTIONS -->
+
+  <section id="transactionsPage" class="hidden">
+   <div class="panel">
+    <h3>Transaction History</h3>
+    <p class="sub">Your payment activity will appear here.</p>
+    <div class="tablewrap">
+     <table>
+      <thead>
+       <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Status</th>
+       </tr>
+      </thead>
+      <tbody id="transactionRows">
+       <tr><td colspan="4">No transactions yet.</td></tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
+  </section>
+
+  <!-- PROFILE -->
+
+  <section id="profilePage" class="hidden">
+   <div class="panel form">
+    <h3>My Profile</h3>
+    <p class="sub">Your registered account information.</p>
+    <div class="row"><span>Full name</span><strong id="profileName">-</strong></div>
+    <div class="row"><span>Email</span><strong id="profileEmail">-</strong></div>
+    <div class="row"><span>Account type</span><strong id="profileType">-</strong></div>
+    <div class="row"><span>Country</span><strong id="profileCountry">-</strong></div>
+    <div class="row"><span>Email verification</span><strong id="profileVerified">-</strong></div>
+   </div>
+  </section>
+
+  <!-- SETTINGS -->
+
+  <section id="settingsPage" class="hidden">
+   <div class="panel form">
+    <h3>Settings</h3>
+    <p class="sub">Manage your account preferences.</p>
+
+    <label>Display currency</label>
+    <select id="displayCurrency" onchange="saveCurrency()">
+     <option value="NGN">Nigerian Naira (NGN)</option>
+     <option value="USD">US Dollar (USD)</option>
+     <option value="GBP">British Pound (GBP)</option>
+     <option value="EUR">Euro (EUR)</option>
+    </select>
+
+    <button class="dark" onclick="logout()">Sign Out</button>
+   </div>
+  </section>
+
+ </main>
 </div>
 
-<footer>
-    ZO PAY V3.0 — Your Money. Your Business. Your World.
-</footer>
+<footer>ZO PAY V4.0 | Your Money. Your Business. Your World.</footer>
 
 <script>
 
-// ADD YOUR SUPABASE DETAILS HERE
+// 1. CONNECT SUPABASE
 
 const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
 const SUPABASE_PUBLISHABLE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
 
 let db = null;
+let currentUser = null;
 
 if (
-    window.supabase &&
-    SUPABASE_URL.startsWith("https://") &&
-    !SUPABASE_URL.includes("YOUR_SUPABASE")
+ window.supabase &&
+ SUPABASE_URL.startsWith("https://") &&
+ !SUPABASE_URL.includes("YOUR_SUPABASE") &&
+ !SUPABASE_PUBLISHABLE_KEY.includes("YOUR_SUPABASE")
 ) {
-    db = window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_PUBLISHABLE_KEY
+ db = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+ );
+}
+
+// 2. BASIC FUNCTIONS
+
+function message(id,text,type){
+ const box=document.getElementById(id);
+ box.textContent=text;
+ box.className="message "+type;
+ box.style.display="block";
+}
+
+function hideAuth(){
+ document.querySelectorAll(".auth .card").forEach(x=>x.classList.add("hidden"));
+}
+
+function showLogin(){
+ hideAuth();
+ document.getElementById("loginBox").classList.remove("hidden");
+}
+
+function showSignup(){
+ hideAuth();
+ document.getElementById("signupBox").classList.remove("hidden");
+}
+
+function showReset(){
+ hideAuth();
+ document.getElementById("resetBox").classList.remove("hidden");
+}
+
+function connected(){
+ if(!db){
+  alert("Please add your Supabase URL and publishable key in the code.");
+  return false;
+ }
+ return true;
+}
+
+// 3. SIGNUP
+
+async function signup(){
+ if(!connected())return;
+
+ const name=document.getElementById("fullName").value.trim();
+ const email=document.getElementById("signupEmail").value.trim();
+ const password=document.getElementById("signupPassword").value;
+ const type=document.getElementById("accountType").value;
+ const country=document.getElementById("country").value;
+
+ if(!name||!email||!password){
+  message("signupMsg","Complete all fields.","error");
+  return;
+ }
+
+ if(password.length<8){
+  message("signupMsg","Password must be at least 8 characters.","error");
+  return;
+ }
+
+ const {data,error}=await db.auth.signUp({
+  email,password,
+  options:{
+   data:{
+    full_name:name,
+    account_type:type,
+    country:country
+   },
+   emailRedirectTo:location.origin+location.pathname
+  }
+ });
+
+ if(error){
+  message("signupMsg",error.message,"error");
+  return;
+ }
+
+ if(data.session){
+  showDashboard(data.user);
+ }else{
+  message("signupMsg","Account created. Check your email to verify your account.","success");
+ }
+}
+
+// 4. LOGIN
+
+async function login(){
+ if(!connected())return;
+
+ const email=document.getElementById("loginEmail").value.trim();
+ const password=document.getElementById("loginPassword").value;
+
+ const {data,error}=await db.auth.signInWithPassword({email,password});
+
+ if(error){
+  message("loginMsg",error.message,"error");
+  return;
+ }
+
+ showDashboard(data.user);
+}
+
+// 5. GOOGLE LOGIN
+
+async function googleLogin(){
+ if(!connected())return;
+
+ const {error}=await db.auth.signInWithOAuth({
+  provider:"google",
+  options:{
+   redirectTo:location.origin+location.pathname
+  }
+ });
+
+ if(error)message("loginMsg",error.message,"error");
+}
+
+// 6. PASSWORD RESET
+
+async function resetPassword(){
+ if(!connected())return;
+
+ const email=document.getElementById("resetEmail").value.trim();
+
+ const {error}=await db.auth.resetPasswordForEmail(email,{
+  redirectTo:location.origin+location.pathname
+ });
+
+ if(error){
+  message("resetMsg",error.message,"error");
+  return;
+ }
+
+ message("resetMsg","If the account exists, a reset email will be sent.","success");
+}
+
+async function updatePassword(){
+ if(!connected())return;
+
+ const password=document.getElementById("newPassword").value;
+
+ if(password.length<8){
+  message("newPasswordMsg","Use at least 8 characters.","error");
+  return;
+ }
+
+ const {error}=await db.auth.updateUser({password});
+
+ if(error){
+  message("newPasswordMsg",error.message,"error");
+  return;
+ }
+
+ message("newPasswordMsg","Password updated successfully.","success");
+}
+
+// 7. DASHBOARD
+
+function showDashboard(user){
+ if(!user)return;
+
+ currentUser=user;
+
+ const m=user.user_metadata||{};
+ const name=m.full_name||"ZO PAY User";
+ const type=m.account_type||"personal";
+ const country=m.country||"Not provided";
+
+ document.getElementById("authArea").classList.add("hidden");
+ document.getElementById("app").classList.remove("hidden");
+
+ document.querySelector(".welcome").innerHTML=
+  "<h2>Welcome, "+safe(name)+"!</h2><p>Your ZO PAY account dashboard.</p>";
+
+ document.getElementById("overviewType").textContent=type;
+ document.getElementById("overviewCountry").textContent=country;
+ document.getElementById("overviewStatus").textContent=
+  user.email_confirmed_at?"Verified":"Email Pending";
+
+ document.getElementById("profileName").textContent=name;
+ document.getElementById("profileEmail").textContent=user.email||"-";
+ document.getElementById("profileType").textContent=type;
+ document.getElementById("profileCountry").textContent=country;
+ document.getElementById("profileVerified").textContent=
+  user.email_confirmed_at?"Verified":"Not verified";
+
+ updateLinks();
+}
+
+// Escape user-provided text before displaying it in HTML
+
+function safe(value){
+ return String(value).replace(/[&<>"']/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+ });
+}
+
+// 8. PAGE NAVIGATION
+
+function page(name,button){
+ const pages=["overview","links","transactions","profile","settings"];
+
+ pages.forEach(p=>{
+  document.getElementById(p+"Page").classList.add("hidden");
+ });
+
+ document.getElementById(name+"Page").classList.remove("hidden");
+
+ document.getElementById("pageTitle").textContent=
+  name.charAt(0).toUpperCase()+name.slice(1);
+
+ document.querySelectorAll(".nav").forEach(n=>n.classList.remove("active"));
+
+ if(button)button.classList.add("active");
+
+ if(name==="links")updateLinks();
+ if(name==="transactions")updateTransactions();
+}
+
+// 9. PAYMENT LINK PREVIEW
+
+function storageKey(){
+ return currentUser?"zopay_links_"+currentUser.id:"zopay_links";
+}
+
+function getLinks(){
+ try{
+  return JSON.parse(localStorage.getItem(storageKey())||"[]");
+ }catch(e){
+  return [];
+ }
+}
+
+function createLink(){
+ if(!currentUser){
+  alert("Please sign in first.");
+  return;
+ }
+
+ const name=document.getElementById("productName").value.trim();
+ const amount=Number(document.getElementById("paymentAmount").value);
+ const currency=document.getElementById("currency").value;
+
+ if(!name||!Number.isFinite(amount)||amount<=0){
+  message("linkMsg","Enter a name and a valid amount.","error");
+  return;
+ }
+
+ const link={
+  id:Date.now().toString(),
+  name:name,
+  amount:amount,
+  currency:currency,
+  date:new Date().toLocaleDateString()
+ };
+
+ const links=getLinks();
+ links.unshift(link);
+
+ localStorage.setItem(storageKey(),JSON.stringify(links));
+
+ document.getElementById("productName").value="";
+ document.getElementById("paymentAmount").value="";
+
+ message("linkMsg","Payment link preview created. It cannot collect money yet.","success");
+
+ updateLinks();
+}
+
+// 10. DISPLAY LINKS
+
+function updateLinks(){
+ const links=getLinks();
+
+ document.getElementById("linkCount").textContent=links.length;
+
+ const box=document.getElementById("linksList");
+
+ if(!links.length){
+  box.textContent="No payment links created yet.";
+  return;
+ }
+
+ box.innerHTML="";
+
+ links.forEach(link=>{
+  const item=document.createElement("div");
+  item.className="panel";
+
+  const title=document.createElement("h3");
+  title.textContent=link.name;
+
+  const detail=document.createElement("p");
+  detail.textContent=link.currency+" "+link.amount+" | "+link.date;
+
+  const address=document.createElement("div");
+  address.className="linkbox";
+  address.textContent="Preview only — no live checkout URL.";
+
+  const copy=document.createElement("button");
+  copy.textContent="Copy Preview Details";
+  copy.onclick=()=>{
+   const text=link.name+" — "+link.currency+" "+link.amount+" (ZO PAY preview only)";
+   if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(
+     ()=>alert("Preview details copied."),
+     ()=>alert(text)
     );
+   }else{
+    alert(text);
+   }
+  };
+
+  item.append(title,detail,address,copy);
+  box.appendChild(item);
+ });
 }
 
-function showMessage(id, message, type) {
-    const box = document.getElementById(id);
-    box.textContent = message;
-    box.className = "message " + type;
-    box.style.display = "block";
+// 11. TRANSACTION HISTORY
+
+function updateTransactions(){
+ const rows=document.getElementById("transactionRows");
+ const links=getLinks();
+
+ if(!links.length){
+  rows.innerHTML="<tr><td colspan='4'>No transactions yet.</td></tr>";
+  return;
+ }
+
+ rows.innerHTML="";
+
+ links.forEach(link=>{
+  const tr=document.createElement("tr");
+
+  [link.name,link.currency+" "+link.amount,link.date,"Preview only"].forEach(value=>{
+   const td=document.createElement("td");
+   td.textContent=value;
+   tr.appendChild(td);
+  });
+
+  rows.appendChild(tr);
+ });
 }
 
-function hideAll() {
-    document.querySelectorAll(".card").forEach(card => {
-        card.classList.add("hidden");
-    });
+// 12. SETTINGS
+
+function saveCurrency(){
+ const value=document.getElementById("displayCurrency").value;
+ localStorage.setItem("zopay_currency",value);
+ alert("Display currency preference saved on this device.");
 }
 
-function showLogin() {
-    hideAll();
-    document.getElementById("loginBox").classList.remove("hidden");
+// 13. LOGOUT
+
+async function logout(){
+ if(!connected())return;
+
+ const {error}=await db.auth.signOut();
+
+ if(error){
+  alert(error.message);
+  return;
+ }
+
+ currentUser=null;
+ document.getElementById("app").classList.add("hidden");
+ document.getElementById("authArea").classList.remove("hidden");
+ showLogin();
 }
 
-function showSignup() {
-    hideAll();
-    document.getElementById("signupBox").classList.remove("hidden");
+// 14. START APP
+
+async function startApp(){
+ if(!db)return;
+
+ const {data}=await db.auth.getSession();
+
+ if(data.session){
+  showDashboard(data.session.user);
+ }
+
+ db.auth.onAuthStateChange((event,session)=>{
+  if(event==="PASSWORD_RECOVERY"){
+   document.getElementById("authArea").classList.remove("hidden");
+   document.getElementById("app").classList.add("hidden");
+   hideAuth();
+   document.getElementById("newPasswordBox").classList.remove("hidden");
+  }
+
+  if(event==="SIGNED_IN"&&session){
+   showDashboard(session.user);
+  }
+ });
 }
 
-function showReset() {
-    hideAll();
-    document.getElementById("resetBox").classList.remove("hidden");
-}
-
-function checkConnection() {
-    if (!db) {
-        alert("Add your Supabase Project URL and Publishable Key in the code first.");
-        return false;
-    }
-    return true;
-}
-
-// CREATE ACCOUNT
-
-async function signup() {
-    if (!checkConnection()) return;
-
-    const name = document.getElementById("fullName").value.trim();
-    const email = document.getElementById("signupEmail").value.trim();
-    const password = document.getElementById("signupPassword").value;
-    const type = document.getElementById("accountType").value;
-    const country = document.getElementById("country").value;
-
-    if (!name || !email || !password) {
-        showMessage("signupMessage", "Please complete all fields.", "error");
-        return;
-    }
-
-    if (password.length < 8) {
-        showMessage("signupMessage", "Password must be at least 8 characters.", "error");
-        return;
-    }
-
-    const { data, error } = await db.auth.signUp({
-        email,
-        password,
-        options: {
-            data: {
-                full_name: name,
-                account_type: type,
-                country: country
-            },
-            emailRedirectTo: window.location.origin +
-                window.location.pathname
-        }
-    });
-
-    if (error) {
-        showMessage("signupMessage", error.message, "error");
-        return;
-    }
-
-    if (data.session) {
-        showDashboard(data.user);
-    } else {
-        showMessage(
-            "signupMessage",
-            "Account created! Check your email and click the verification link before signing in.",
-            "success"
-        );
-    }
-}
-
-// LOGIN
-
-async function login() {
-    if (!checkConnection()) return;
-
-    const email = document.getElementById("loginEmail").value.trim();
-    const password = document.getElementById("loginPassword").value;
-
-    if (!email || !password) {
-        showMessage("loginMessage", "Enter your email and password.", "error");
-        return;
-    }
-
-    const { data, error } = await db.auth.signInWithPassword({
-        email,
-        password
-    });
-
-    if (error) {
-        showMessage("loginMessage", error.message, "error");
-        return;
-    }
-
-    showDashboard(data.user);
-}
-
-// GOOGLE LOGIN
-
-async function googleLogin() {
-    if (!checkConnection()) return;
-
-    const { error } = await db.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-            redirectTo: window.location.origin +
-                window.location.pathname
-        }
-    });
-
-    if (error) {
-        showMessage("loginMessage", error.message, "error");
-    }
-}
-
-// REQUEST PASSWORD RESET
-
-async function resetPassword() {
-    if (!checkConnection()) return;
-
-    const email = document.getElementById("resetEmail").value.trim();
-
-    if (!email) {
-        showMessage("resetMessage", "Enter your email address.", "error");
-        return;
-    }
-
-    const { error } = await db.auth.resetPasswordForEmail(email, {
-        redirectTo: window.location.origin +
-            window.location.pathname
-    });
-
-    if (error) {
-        showMessage("resetMessage", error.message, "error");
-        return;
-    }
-
-    showMessage(
-        "resetMessage",
-        "If the account exists, a password reset email will be sent.",
-        "success"
-    );
-}
-
-// UPDATE PASSWORD AFTER RESET LINK
-
-async function updatePassword() {
-    if (!checkConnection()) return;
-
-    const password = document.getElementById("newPassword").value;
-
-    if (password.length < 8) {
-        showMessage(
-            "newPasswordMessage",
-            "Password must be at least 8 characters.",
-            "error"
-        );
-        return;
-    }
-
-    const { error } = await db.auth.updateUser({
-        password: password
-    });
-
-    if (error) {
-        showMessage("newPasswordMessage", error.message, "error");
-        return;
-    }
-
-    showMessage(
-        "newPasswordMessage",
-        "Password updated successfully. You can now sign in.",
-        "success"
-    );
-}
-
-// DISPLAY DASHBOARD
-
-function showDashboard(user) {
-    if (!user) return;
-
-    const metadata = user.user_metadata || {};
-
-    document.getElementById("authArea").classList.add("hidden");
-    document.getElementById("dashboard").classList.remove("hidden");
-
-    document.getElementById("userName").textContent =
-        metadata.full_name || "ZO PAY User";
-
-    document.getElementById("userType").textContent =
-        metadata.account_type || "Personal";
-
-    document.getElementById("userCountry").textContent =
-        metadata.country || "Not provided";
-
-    document.getElementById("userEmail").textContent =
-        user.email || "";
-
-    document.getElementById("userStatus").textContent =
-        user.email_confirmed_at ? "Verified" : "Email Pending";
-}
-
-// LOGOUT
-
-async function logout() {
-    if (!checkConnection()) return;
-
-    const { error } = await db.auth.signOut();
-
-    if (error) {
-        alert(error.message);
-        return;
-    }
-
-    document.getElementById("dashboard").classList.add("hidden");
-    document.getElementById("authArea").classList.remove("hidden");
-
-    showLogin();
-}
-
-// CHECK EXISTING SESSION
-
-async function startApp() {
-    if (!db) return;
-
-    const { data, error } = await db.auth.getSession();
-
-    if (!error && data.session) {
-        showDashboard(data.session.user);
-    }
-
-    db.auth.onAuthStateChange((event, session) => {
-        if (event === "PASSWORD_RECOVERY") {
-            document.getElementById("authArea").classList.remove("hidden");
-            document.getElementById("dashboard").classList.add("hidden");
-            hideAll();
-            document.getElementById("newPasswordBox").classList.remove("hidden");
-        }
-
-        if (session && event === "SIGNED_IN") {
-            showDashboard(session.user);
-        }
-    });
+const savedCurrency=localStorage.getItem("zopay_currency");
+if(savedCurrency){
+ document.getElementById("displayCurrency").value=savedCurrency;
 }
 
 startApp();
 
 </script>
-
 </body>
 </html>
